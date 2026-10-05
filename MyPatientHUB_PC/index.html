@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPatientHUB</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="public/login.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <section class="login-page" id="login-page">
+        <div class="login-hero">
+            <div class="login-hero-content">
+                <h1>Welcome to MyPatientHUB!</h1>
+                <p>We provide smart healthcare services in your hands.</p>
+            </div>
+        </div>
+
+        <div class="login-card-container">
+            <div class="login-card">
+                <h2>Sign in to MyPatientHUB</h2>
+
+                <div class="login-social-buttons">
+                    <button class="login-social-btn" type="button">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button class="login-social-btn" type="button">
+                        <i class="fab fa-google"></i>
+                    </button>
+                </div>
+
+                <form id="login-form">
+                    <input
+                        type="email"
+                        id="login-email"
+                        placeholder="Email address"
+                        autocomplete="username"
+                        required>
+                    <div id="login-email-error" class="login-field-error"></div>
+
+                    <input
+                        type="password"
+                        id="login-password"
+                        placeholder="Enter your 4-character password"
+                        autocomplete="current-password"
+                        maxlength="4"
+                        required>
+                    <div id="login-password-error" class="login-field-error"></div>
+
+                    <div class="login-options">
+                        <label>
+                            <input type="checkbox" id="login-remember">
+                            <span>Remember me</span>
+                        </label>
+
+                        <a href="#" id="login-forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="login-signin-btn">
+                        SIGN IN
+                    </button>
+                </form>
+
+                <div class="login-divider">
+                    <span>or</span>
+                </div>
+
+                <button class="login-signup-btn" id="login-signup-btn" type="button">
+                    SIGN UP
+                </button>
+
+                <div class="login-footer">
+                    <div>
+                        <h4>Get the App</h4>
+                        <a href="#">Google Play Store APP</a>
+                        <a href="#">App Store APP</a>
+                    </div>
+
+                    <div>
+                        <h4>About</h4>
+                        <a href="#">About MyPatientHUB</a>
+                        <a href="#">About Us</a>
+                        <a href="#">Our Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DASHBOARD PAGE -->
+    <div id="dashboard-page">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+
+                <div class="sidebar-title">
+                    MyPatientHUB
+                    <span>Healthcare Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a class="nav-item active" href="#" id="dashboard-nav" data-section="dashboard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a class="nav-item" href="#" id="appointments-nav" data-section="appointments">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Appointments</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-user-md"></i>
+                    <span>Find Doctor</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-clinic-medical"></i>
+                    <span>Find Clinic</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-store"></i>
+                    <span>Find MarketPlace</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    <span>Find Pharmacy</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-users"></i>
+                    <span>My Dependents</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-user-circle"></i>
+                    <span>My Account</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <header class="navbar">
+            <div class="navbar-left">
+                <button class="hamburger" id="hamburger-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <i class="fas fa-home"></i>
+                    <span>/</span>
+                    <span>Dashboard</span>
+                </div>
+
+                <h1 class="navbar-title">Dashboard</h1>
+            </div>
+
+            <div class="navbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+
+                <button class="logout-btn" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Log out
+                </button>
+
+                <div class="navbar-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+
+                <div class="navbar-icon notification-wrapper">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge"></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h2 class="welcome-text">Welcome To MyPatientHUB!</h2>
+
+            <div class="dashboard-grid">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Promotion by Clinics</h3>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-wrapper">
+                            <canvas id="clinicChart"></canvas>
+                        </div>
+
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color clinic1"></span>
+                                <span class="legend-label">Klinik Lee Healthcare</span>
+                                <b>19%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color clinic2"></span>
+                                <span class="legend-label">Klinik Bandar Baru Nilai</span>
+                                <b>4%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color clinic3"></span>
+                                <span class="legend-label">Klinik Mediviron Giant Nilai</span>
+                                <b>10%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color clinic4"></span>
+                                <span class="legend-label">KLINIK NILAI IMPIAN</span>
+                                <b>21%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color clinic5"></span>
+                                <span class="legend-label">Klinik Mediviron</span>
+                                <b>2%</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="more-details-btn">More Details</button>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Promotion by Pharmacies</h3>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-wrapper">
+                            <canvas id="pharmacyChart"></canvas>
+                        </div>
+
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color pharmacy1"></span>
+                                <span class="legend-label">ALPRO PHARMACY NILAI</span>
+                                <b>15%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color pharmacy2"></span>
+                                <span class="legend-label">ALPRO PHARMACY PEKAN NILAI</span>
+                                <b>12%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color pharmacy3"></span>
+                                <span class="legend-label">OK PHARMACY</span>
+                                <b>5%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color pharmacy4"></span>
+                                <span class="legend-label">PHARMART PHARMACY NILAI</span>
+                                <b>9%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color pharmacy5"></span>
+                                <span class="legend-label">Health Lane Family Pharmacy</span>
+                                <b>14%</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="more-details-btn">More Details</button>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Smart Market Usage by app</h3>
+                        <span class="card-info-icon">
+                            <i class="fas fa-info"></i>
+                        </span>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-wrapper">
+                            <canvas id="appUsageChart"></canvas>
+                        </div>
+
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color app1"></span>
+                                <span class="legend-label">Food Panda</span>
+                                <b>25%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color app2"></span>
+                                <span class="legend-label">Grab Food</span>
+                                <b>3%</b>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color app3"></span>
+                                <span class="legend-label">Other apps</span>
+                                <b>72%</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="more-details-btn">More Details</button>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Health Index</h3>
+                    </div>
+
+                    <div class="health-index-value">
+                        <strong>70%</strong>
+                        <span>+3%</span>
+                    </div>
+
+                    <div class="line-chart-container">
+                        <canvas id="healthIndexChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- APPOINTMENTS SECTION -->
+            <section class="appointments-section" id="appointments-section">
+                <div class="appointments-header">
+                    <div>
+                        <h2>Appointments</h2>
+                        <p>Manage your upcoming and previous appointments.</p>
+                    </div>
+                    <button class="book-appointment-btn" id="book-appointment-btn">
+                        <i class="fas fa-plus"></i> Book New Appointment
+                    </button>
+                </div>
+
+                <div class="appointment-form-card" id="appointment-form-card">
+                    <div class="appointment-form-header">
+                        <div>
+                            <h3>Book New Appointment</h3>
+                            <p>Enter the appointment information below.</p>
+                        </div>
+                        <button type="button" class="close-form-btn" id="close-appointment-form">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <form id="appointment-form">
+                        <div class="appointment-form-grid">
+                            <div class="form-group">
+                                <label for="appointment-doctor">Doctor</label>
+                                <select id="appointment-doctor" required>
+                                    <option value="">Select Doctor</option>
+                                    <option>Dr. Sarah Johnson</option>
+                                    <option>Dr. Michael Lee</option>
+                                    <option>Dr. Emily Williams</option>
+                                    <option>Dr. Daniel Smith</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment-date">Date</label>
+                                <input type="date" id="appointment-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment-time">Time</label>
+                                <input type="time" id="appointment-time" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment-type">Appointment Type</label>
+                                <select id="appointment-type" required>
+                                    <option value="">Select Type</option>
+                                    <option>General Consultation</option>
+                                    <option>Follow-up</option>
+                                    <option>Health Checkup</option>
+                                    <option>Online Consultation</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="appointment-form-actions">
+                            <button type="button" class="cancel-form-btn" id="cancel-appointment-form">Cancel</button>
+                            <button type="submit" class="save-appointment-btn"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="appointments-card">
+                    <div class="appointments-card-header">
+                        <div>
+                            <h3>My Appointments</h3>
+                            <p>Your scheduled appointments</p>
+                        </div>
+                        <span class="appointment-count" id="appointment-count">0 Appointments</span>
+                    </div>
+                    <div class="appointments-list" id="appointments-list"></div>
+                </div>
+
+                <div class="appointment-details-card" id="appointment-details-card">
+                    <div class="details-header">
+                        <div>
+                            <h3>Appointment Details</h3>
+                            <p>More information about this appointment.</p>
+                        </div>
+                        <button type="button" class="close-details-btn" id="close-details-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div id="appointment-details-content"></div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>© 2026, made with ♥️ by <strong>MyPiHUB</strong> for a better web.</p>
+
+                <div>
+                    <a href="#">MyPatientHUB</a>
+                    <span>|</span>
+                    <a href="#">About Us</a>
+                    <span>|</span>
+                    <a href="#">Blog</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="public/login.js"></script>
+    <script src="public/script.js"></script>
+</body>
+</html>
